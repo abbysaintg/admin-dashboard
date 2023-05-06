@@ -14,7 +14,8 @@ import salesRoutes from './routes/sales.js'
 import User from './models/User.js'
 import Product from './models/Product.js'
 import ProductStat from './models/ProductStat.js'
-import { dataUser, dataProduct, dataProductStat } from './data/index.js'
+import Transaction from './models/Transaction.js'
+import { dataUser, dataProduct, dataProductStat, dataTransaction } from './data/index.js'
 
 // CONFIGS
 dotenv.config()
@@ -36,7 +37,8 @@ app.use('/sales', salesRoutes)
 // MONGOOSE SETUP
 const PORT = process.env.PORT || 9000 // 5001 or 9000
 mongoose
-	.connect(process.env.MONGO_URL, { // MONGO_URL is the url to the database
+	.connect(process.env.MONGO_URL, {
+		// MONGO_URL is the url to the database
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
 	})
@@ -44,8 +46,9 @@ mongoose
 		app.listen(PORT, () => {
 			console.log(`Server running on port: ${PORT}`)
 		})
-        // User.insertMany(dataUser)
-        // Product.insertMany(dataProduct)
-        // ProductStat.insertMany(dataProductStat)
+		// User.insertMany(dataUser)
+		// Product.insertMany(dataProduct)
+		// ProductStat.insertMany(dataProductStat)
+        // Transaction.insertMany(dataTransaction)
 	})
 	.catch((error) => console.log(`${error} did not connect`))
