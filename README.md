@@ -1,7 +1,5 @@
 MERN React Admin Dashboard
 
-### Deploy Link:
-
 ### Tech Included:
 
 -   MongoDb
@@ -27,3 +25,7 @@ MERN React Admin Dashboard
 
 -   client - npm run start
 -   server - npm run dev
+
+### Special Thanks:
+
+-   Ed Roh
