@@ -2376,15 +2376,6 @@ export const dataAffiliateStat = [
       supply: 1026,
     },
     {
-      _id: "63701d24f0323944410002ec",
-      name: "Mirabella Doucette",
-      price: 11.7,
-      description: "Destruction of Anus, External Approach",
-      category: "accessories",
-      rating: 2.31,
-      supply: 734,
-    },
-    {
       _id: "63701d24f0323944410002ed",
       name: "Hoebart Isted",
       price: 380.01,

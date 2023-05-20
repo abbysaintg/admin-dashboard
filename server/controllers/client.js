@@ -1,19 +1,15 @@
-// get products and stats from the database
 import Product from '../models/Product.js'
 import ProductStat from '../models/ProductStat.js'
 import User from '../models/User.js'
 import Transaction from '../models/Transaction.js'
-import pkg from 'country-iso-2-to-3'
-
-const getCountryIso3 = pkg
+import getCountryIso3 from 'country-iso-2-to-3'
 
 export const getProducts = async (req, res) => {
 	try {
-		const products = await Product.find() // get all products
+		const products = await Product.find()
 
-		const productWithStats = await Promise.all(
+		const productsWithStats = await Promise.all(
 			products.map(async (product) => {
-				// map through all products and get stats for each product
 				const stat = await ProductStat.find({
 					productId: product._id,
 				})
@@ -23,7 +19,8 @@ export const getProducts = async (req, res) => {
 				}
 			})
 		)
-		res.status(200).json(productWithStats)
+
+		res.status(200).json(productsWithStats)
 	} catch (error) {
 		res.status(404).json({ message: error.message })
 	}
@@ -31,7 +28,7 @@ export const getProducts = async (req, res) => {
 
 export const getCustomers = async (req, res) => {
 	try {
-		const customers = await User.find({ role: 'user' }).select('-password') // don't include password
+		const customers = await User.find({ role: 'user' }).select('-password')
 		res.status(200).json(customers)
 	} catch (error) {
 		res.status(404).json({ message: error.message })
@@ -62,7 +59,7 @@ export const getTransactions = async (req, res) => {
 			.limit(pageSize)
 
 		const total = await Transaction.countDocuments({
-			name: { $regex: search, $options: 'i' }, // number of documents that match the search
+			name: { $regex: search, $options: 'i' },
 		})
 
 		res.status(200).json({
