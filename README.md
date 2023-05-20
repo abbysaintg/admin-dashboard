@@ -28,4 +28,4 @@ MERN React Admin Dashboard
 
 ### Special Thanks:
 
--   Ed Roh
+-   Ed Roh for the tutorial(https://youtu.be/0cPCMIuDk2I)
